@@ -22,8 +22,8 @@ function multiply (arr) {
 	return product;
 }
 
-function power() {
-	
+function power(op1, op2) {
+	return op1 ** op2;
 }
 
 function factorial() {
