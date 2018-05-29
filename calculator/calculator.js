@@ -14,8 +14,12 @@ function sum (arr) {
 	return sum;
 }
 
-function multiply () {
-	
+function multiply (arr) {
+	let product = 1;
+	arr.forEach(item => {
+		product *= item;
+	});
+	return product;
 }
 
 function power() {
