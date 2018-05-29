@@ -26,8 +26,12 @@ function power(op1, op2) {
 	return op1 ** op2;
 }
 
-function factorial() {
-	
+function factorial(op) {
+	let f = 1;
+	for (let i = 2; i <= op; i++) {
+		f *= i;
+	}
+	return f;
 }
 
 module.exports = {
