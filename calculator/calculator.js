@@ -2,12 +2,16 @@ function add (op1, op2) {
 	return op1 + op2;
 }
 
-function subtract () {
-	
+function subtract (op1, op2) {
+	return op1 - op2;
 }
 
-function sum () {
-	
+function sum (arr) {
+	let sum = 0;
+	arr.forEach(item => {
+		sum += item;
+	});
+	return sum;
 }
 
 function multiply () {
