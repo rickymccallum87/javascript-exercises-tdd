@@ -1,32 +1,35 @@
 var snakeCase = function(str) {
-	console.log('\n');
-	console.log(str);
+	
 	// Detect WTF case
 	const wtf = /^[a-z]+\.\.[a-z]+/i;
 	if (str.match(wtf)) {
-		console.log('wtf case');
-		return;
+		return str.toLowerCase().split('..').join('_');
 	}
-	
+
 	// Detect kebab case
 	const kebab = /^[a-z]+-[a-z]+/i;
 	if (str.match(kebab)) {
-		console.log('kebab case');
-		return;
+		return str.split('-').join('_');
 	}
-	
+
 	// Detect camel case
 	const camel = /^[a-z]+[A-Z][a-z]+/;
 	if (str.match(camel)) {
-		console.log('camel case');
-		return;
+		// Place an underscore before all capital letters
+		return str.replace(/([A-Z])/, '_$1').toLowerCase();
 	}
-	
-	// Detect spaced phrases
-	let arr = str.split(' ');
-	console.log(arr);
 
-	console.log('\n');
+	// Spaced phrases remain
+	// Replace spaces with underscores
+	while (str.match(/\s/)) {
+		str = str.replace(/\s/, '_');
+	}
+	// Remove punctuation
+	while (str.match(/\W/)) {
+		str = str.replace(/\W/, '');
+	}
+	return str.toLowerCase();
+
 }
 
 module.exports = snakeCase
