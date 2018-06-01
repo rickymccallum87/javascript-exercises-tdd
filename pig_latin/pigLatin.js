@@ -1,11 +1,23 @@
 function translate(str) {
-	if (str[0].match(/[aeiou]/)) { // first letter is a vowel
-		return str.concat('ay');
-	} else {
-		startSound = str.match(/[^aeiou]+/);
-		console.log(startSound, startSound.length);
-		return str.slice(startSound[0].length).concat(startSound[0] + 'ay');
+  arr = str.split(' ');
+
+	// Deal with one word at a time
+	for (let i = 0; i < arr.length; i++) {
+
+		// Translate each word
+		if (arr[i][0].match(/[aeiou]/)) {
+
+			// Vowel sound
+			arr[i] = arr[i].concat('ay');
+		} else {
+
+			// Consonant sound
+			startSound = arr[i].match(/qu|[^aeiou]+qu|[^aeiou]+/);
+			arr[i] = arr[i].slice(startSound[0].length).concat(startSound[0] + 'ay');
+		}
 	}
+
+	return arr.join(' ');
 }
 
 
